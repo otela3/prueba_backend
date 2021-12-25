@@ -1,6 +1,13 @@
 version: '3.3'
 
 services:
+  web:
+    build: .
+    command: uvicorn main:api --host 0.0.0.0
+    volumes:
+      - .:/prueba_backend
+    ports:
+      - 8000:8000
   postgres:
     image: postgres
     container_name: postgres
